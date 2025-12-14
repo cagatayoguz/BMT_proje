@@ -26,7 +26,7 @@ public class AnaMenuGUI extends JFrame {
         JButton kutuphaneBtn   = new JButton("Kütüphane");
         JButton sporBtn        = new JButton("Spor Salonu");
         JButton yemekBtn       = new JButton("Yemekhane");
-        JButton cikisBtn       = new JButton("Çıkış");
+        JButton cikisBtn       = new JButton("Çıkışsssss");
 
 
         // Panele ekle
