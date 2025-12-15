@@ -11,6 +11,20 @@ public class OgrenciService {
         ogrenciler.add(o);
     }
 
+    public ArrayList<Ogrenci> getOgrenciler() {
+        return ogrenciler;
+    }
+
+    public boolean ogrenciSil(String ogrenciNo) {
+        for (Ogrenci o : ogrenciler) {
+            if (o.getOgrenciNo().equals(ogrenciNo)) {
+                ogrenciler.remove(o);
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void listele() {
         for (Ogrenci o : ogrenciler)
             o.profilGoster();

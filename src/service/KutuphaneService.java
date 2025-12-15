@@ -11,6 +11,18 @@ public class KutuphaneService {
         kitaplar.add(k);
     }
 
+    // ✅ EKLENDİ
+    public boolean kitapSil(String kitapAdi) {
+        for (Kitap k : kitaplar) {
+            if (k.getAd().equalsIgnoreCase(kitapAdi)) {
+                kitaplar.remove(k);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // (İleride gerekirse)
     public ArrayList<Kitap> getKitaplar() {
         return kitaplar;
     }

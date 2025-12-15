@@ -5,60 +5,44 @@ import java.awt.*;
 
 public class AnaMenuGUI extends JFrame {
 
-    public AnaMenuGUI() {
+    private static final String YONETIM_SIFRE = "admin123";
 
-        // Pencere ayarları
-        setTitle("Kampüs Yönetim Sistemi");
-        setSize(500, 450);
+    public AnaMenuGUI() {
+        setTitle("Ana Menü");
+        setSize(400, 250);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Ana panel
-        JPanel panel = new JPanel();
-        panel.getColorModel();
-        panel.setLayout(new GridLayout(7, 1, 10, 10));
-        panel.setBorder(BorderFactory.createEmptyBorder(20, 40, 20, 40));
+        JButton btnBilgi = new JButton("Bilgi");
+        JButton btnYonetim = new JButton("Yönetim");
 
-        // Butonlar
-        JButton ogrenciBtn     = new JButton("Öğrenci Yönetimi");
-        JButton akademisyenBtn = new JButton("Akademisyen Yönetimi");
-        JButton dersBtn        = new JButton("Ders Programı");
-        JButton kutuphaneBtn   = new JButton("Kütüphane");
-        JButton sporBtn        = new JButton("Spor Salonu");
-        JButton yemekBtn       = new JButton("Yemekhane");
-        JButton cikisBtn       = new JButton("Çıkışsssss");
+        btnBilgi.addActionListener(e -> new BilgiMenuGUI());
+        btnYonetim.addActionListener(e -> yonetimGiris());
 
-
-        // Panele ekle
-        panel.add(ogrenciBtn);
-        panel.add(akademisyenBtn);
-        panel.add(dersBtn);
-        panel.add(kutuphaneBtn);
-        panel.add(sporBtn);
-        panel.add(yemekBtn);
-        panel.add(cikisBtn);
-
-        add(panel);
-
-        // Buton aksiyonları
-        sporBtn.addActionListener(e -> new SporSalonuGUI());
-        kutuphaneBtn.addActionListener(e -> new KutuphaneGUI());
-        yemekBtn.addActionListener(e -> new YemekhaneGUI());
-        dersBtn.addActionListener(e -> new DersYonetimiGUI());
-        dersBtn.addActionListener(e -> new FakulteSecimGUI());
-
-        //dersBtn.addActionListener(e -> new DersProgramiGUI());
-
-
-//        dersBtn.addActionListener(e -> {
-//            DersProgramiDosyaAcici.dosyaAc(
-//                    "C:\\Users\\cagat\\Downloads\\1419ea55-17ad-44dd-8eca-67018ed9da87-lisans-2025-2026-guz-ders-programi-20092025.xls"
-//            );
-//        });
-
-
-        cikisBtn.addActionListener(e -> System.exit(0));
+        setLayout(new GridLayout(2, 1, 15, 15));
+        add(btnBilgi);
+        add(btnYonetim);
 
         setVisible(true);
+    }
+
+    private void yonetimGiris() {
+        JPasswordField sifre = new JPasswordField();
+
+        int sonuc = JOptionPane.showConfirmDialog(
+                this,
+                sifre,
+                "Yönetim Girişi",
+                JOptionPane.OK_CANCEL_OPTION
+        );
+
+        if (sonuc != JOptionPane.OK_OPTION) return;
+
+        if (!YONETIM_SIFRE.equals(new String(sifre.getPassword()))) {
+            JOptionPane.showMessageDialog(this, "Hatalı şifre!");
+            return;
+        }
+
+        new YonetimMenuGUI();
     }
 }

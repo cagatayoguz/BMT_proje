@@ -11,9 +11,19 @@ public class Ogrenci extends Kisi {
         this.ogrenciNo = ogrenciNo;
     }
 
+    public String getOgrenciNo() {
+        return ogrenciNo;
+    }
+
+    public ArrayList<Ders> getAldigiDersler() {
+        return aldigiDersler;
+    }
+
     @Override
     public void profilGoster() {
-        System.out.println("Öğrenci: " + getAd() + " " + getSoyad() + " - No: " + ogrenciNo);
+        System.out.println(
+                "Öğrenci: " + getAd() + " " + getSoyad() + " - No: " + ogrenciNo
+        );
     }
 
     public void dersEkle(Ders d) {
