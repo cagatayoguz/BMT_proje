@@ -34,12 +34,8 @@ public class Menu {
 
                     ogrenciService.ogrenciEkle(new Ogrenci(ad, soyad, tc, no));
 
-
-
-
                 case 2 : ogrenciService.listele();
             }
-
         } while (secim != 0);
     }
 }
