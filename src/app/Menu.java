@@ -14,7 +14,7 @@ public class Menu {
         int secim = -1;
 
         do {
-            System.out.println("\n===== KAMPÜS YÖNETİM SİSTEMİ =====");
+            System.out.println("\n==== KAMPÜS YÖNETİM SİSTEMİ ====");
             System.out.println("1 - Öğrenci Ekle");
             System.out.println("2 - Öğrenci Listele");
             System.out.println("0 - Çıkış");
@@ -34,12 +34,8 @@ public class Menu {
 
                     ogrenciService.ogrenciEkle(new Ogrenci(ad, soyad, tc, no));
 
-
-
-
                 case 2 : ogrenciService.listele();
             }
-
         } while (secim != 0);
     }
 }
